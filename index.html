@@ -39,10 +39,13 @@
     transition: all 0.3s ease;
   }
   .nav-bar {
-    background-color: #0b0b1a;
-    text-align: center;
-    padding: 1rem 0;
-  }
+  background-color: #0f0f1f;
+  text-align: center;
+  padding: 1rem 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  border-top: 1px solid #1e1e2f;
+  border-bottom: 1px solid #1e1e2f;
+}
   .nav-bar p {
     margin: 0;
     color: #bbb;
@@ -57,23 +60,17 @@
     margin-top: 0.8rem;
   }
   .nav-buttons a {
-    border: 1px solid #444;
-    color: #ccc;
-    padding: 0.5rem 1.4rem;
-    border-radius: 999px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.95rem;
-    background: linear-gradient(145deg, #1e1e2f, #10101d);
-    box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
-    transition: all 0.3s ease;
-  }
-  .nav-buttons a:hover {
-    color: #fff;
-    border-color: #aaa;
-    box-shadow: 0 0 12px rgba(160, 176, 255, 0.3), 0 0 20px rgba(126, 87, 194, 0.3);
-    background: linear-gradient(145deg, #2c2c3a, #1a1a2a);
-  }
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border: 1px solid #444;
+  border-radius: 2rem;
+  color: #ccc;
+  background-color: #121221;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  
+}
   @media (max-width: 767px) {
     .content-container {
       flex-direction: column !important;
@@ -85,6 +82,31 @@
       flex-direction: row !important;
     }
   }
+  
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 rgba(126, 87, 194, 0.0);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(126, 87, 194, 0.3), 0 0 40px rgba(160, 176, 255, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(126, 87, 194, 0.0);
+  }
+}
+  .pulse-glow {
+    animation: pulseNav 3s infinite ease-in-out;
+  }
+  @keyframes pulseNav {
+    0% { box-shadow: 0 0 0 rgba(126, 87, 194, 0.0); }
+    50% { box-shadow: 0 0 12px rgba(126, 87, 194, 0.15), 0 0 32px rgba(126, 87, 194, 0.1); }
+    100% { box-shadow: 0 0 0 rgba(126, 87, 194, 0.0); }
+  }
+.nav-buttons a:hover {
+    box-shadow: 0 0 12px rgba(186, 147, 255, 0.4), 0 0 24px rgba(186, 147, 255, 0.2);
+    filter: brightness(1.1);
+    color: #fff;
+  }
 </style>
 
 <!-- Version Tag -->
@@ -94,13 +116,15 @@
 <div style="height: 280px; background-image: url('https://raw.githubusercontent.com/Visionsoundhub/visionsoundhubmain/main/logoheader.jpg'); background-size: 80%; background-position: center; background-repeat: no-repeat; background-color: #fff; animation: fadeIn 1.2s ease forwards; opacity: 0;"></div>
 
 <!-- Navigation Bar -->
-<div class="nav-bar">
+<div class="nav-bar pulse-glow">
   <p>Audio & Visual Production. Simplified</p>
   <div class="nav-buttons">
+    <a href="#">Home</a>
+    <a href="#">Υπηρεσίες</a>
     <a href="#">Portfolio</a>
     <a href="#">Beats</a>
     <a href="#">Pricing</a>
-    <a href="#">Zairok (Manga)</a>
+    <a href="#">Vision Sound Hub</a>
   </div>
 </div>
 
